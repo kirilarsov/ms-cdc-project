@@ -1,0 +1,11 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-prod.xml
+  cloud:
+    config:
+      enabled: false
+integration:
+  transaction-service-base-url: ${TRANSACTION_SERVICE_BASE_URL:http://localhost:8082}
+application-description: card-service-test
+application-version: 1.0

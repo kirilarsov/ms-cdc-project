@@ -1,0 +1,12 @@
+<dataset>
+    <transaction
+            id="-1"
+            account_uuid="account-uuid-1"
+            card_uuid="card-uuid-1"
+            merchant="IKEA"
+            amount="251.52"
+            type="SETTLEMENT"
+            currency="EUR"
+    />
+
+</dataset>

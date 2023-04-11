@@ -1,0 +1,8 @@
+{
+  "accountUuid": "account-uuid-1",
+  "cardUuid": "card-uuid-1",
+  "merchant": "IKEA",
+  "amount": "251.52",
+  "currency": "EUR",
+  "type": "SETTLEMENT"
+}

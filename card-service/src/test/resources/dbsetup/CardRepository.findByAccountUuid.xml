@@ -1,0 +1,12 @@
+<dataset>
+    <card
+            id="-1"
+            card_holder_name="Tom Jonson"
+            pan="1234-5678-9012-3456"
+            valid_to="11/29"
+            cvc="123"
+            status="ACTIVE"
+            account_uuid="account-uuid-1"
+    />
+
+</dataset>

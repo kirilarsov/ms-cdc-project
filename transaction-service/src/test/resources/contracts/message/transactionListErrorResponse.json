@@ -1,0 +1,12 @@
+{
+  "transactions": [
+    {
+      "accountUuid": "account-uuid-1",
+      "cardUuid": "card-uuid-1",
+      "merchant": "IKEA",
+      "amount": "251.52",
+      "currency": "ERROR_CURRECY",
+      "type": "SETTLEMENT"
+    }
+  ]
+}

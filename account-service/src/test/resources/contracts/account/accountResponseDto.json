@@ -1,0 +1,10 @@
+{
+  "accounts": [
+    {
+      "userUuid": "a6d2c821-c730-43ae-af78-992c1e1e6bb2",
+      "name": "Debit Account",
+      "balance": 750.25,
+      "currency": "EUR"
+    }
+  ]
+}

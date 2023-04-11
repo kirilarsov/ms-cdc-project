@@ -4,6 +4,8 @@ Micro services using Consumer Driven Contract
 # About CDC
 Consumer-Driven Contracts (CDC) is a pattern for evolving services. In Consumer-Driven Contracts, each consumer captures their expectations of the provider in a separate contract. All of these contracts are shared with the provider so they gain insight into the obligations they must fulfill for each individual client.
 
+Presentation available [here](docs/KirilArsov-CDC.pdf)
+
 ## Producer/Provider
 The producer is a service that exposes an API (e.g. rest endpoint) or sends a message (e.g. Kafka Producer which publishes the message to Kafka Topic)
 ## Consumer

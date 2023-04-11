@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: account-service
+  cloud:
+    config:
+      enabled: false
+  profiles:
+    group:
+      default: web
+      web: card-web-client, transaction-web-client
+      logger: card-logger-client, transaction-logger-client
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  liquibase:
+    change-log: classpath:/db/changelog/${LIQUIBASE_CHANGE_LOG:changelog-prod.xml}
+    test-rollback-on-update: true
+  sleuth:
+    feign:
+      enabled: true
+    sampler:
+      probability: ${ZIPKIN_SAMPLER_PROBABILITY:1}
+  zipkin:
+    enabled: ${ZIPKIN_ENABLED:false}
+    base-url: ${ZIPKIN_BASE_URL:}
+
+integration:
+  card-service-base-url: ${CARD_SERVICE_BASE_URL:http://localhost:8081}
+  transaction-service-base-url: ${TRANSACTION_SERVICE_BASE_URL:http://localhost:8082}
+
+logging:
+  pattern:
+    console: "%cyan(%d{yyyy.MM.dd HH:mm:ss.SSS}) %highlight(%-5level) [%X{traceId}, %X{spanId}] %gray([%thread]) %magenta(%logger{36}) - %msg%n"
+  level:
+    root: ${LOG_LEVEL_DEFAULT:info}
+    edu:
+      kirilarsov: ${LOG_LEVEL_EDU:info}
+    org:
+      hibernate:
+        SQL: ${LOG_LEVEL_SQL_OUTPUT:info}
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: metrics,prometheus
+      base-path: /
+  endpoint:
+    prometheus:
+      enabled: ${METRICS_PROMETHEUS_ENABLED:false}
+    metrics:
+      enabled: ${METRICS_ENABLED:false}
+  metrics:
+    export:
+      prometheus:
+        enabled: ${METRICS_PROMETHEUS_ENABLED:false}
+        descriptions: true
+        step: ${METRICS_PROMETHEUS_STEP:PT1M}
+    enable:
+      all: ${METRICS_ENABLED:false}
+
+springdoc:
+  api-docs:
+    enabled: ${API_DOCS_ENABLED:false}
+  swagger-ui:
+    path: swagger-ui.html
+
+# These are replaced with values from pom.xml by the `spring-boot-starter-parent` plugin.
+application-description: "@project.description@"
+application-version: "@project.version@"
+server:
+  port: ${SERVER_PORT:8080}

@@ -1,0 +1,30 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-prod.xml
+  cloud:
+    config:
+      enabled: false
+transaction-service:
+  rabbitmq:
+    # The inbound exchanges and queues being listened to by the service
+    inputs:
+      process-file:
+        exchange: processor.topic
+        queue: notificationQueue
+        routingKey: processor.event.notification
+
+    # The outbound exchanges and queues being published to by the service.
+    outputs:
+      file-processed:
+        exchange: processor.topic
+        routingKey: processor.event.created
+
+      transaction-error:
+        exchange: processor.topic
+        routingKey: processor.event.error.notification
+application-description: transaction-service-test
+application-version: 1.0
+stubrunner:
+  amqp:
+    enabled: true

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+    <changeSet id="20210824104720" author="kiril.arsov">
+
+        <insert tableName="transaction">
+            <column name="id" value="-1"/>
+            <column name="account_uuid" value="account-uuid-1"/>
+            <column name="card_uuid" value="card-uuid-1"/>
+            <column name="merchant" value="IKEA"/>
+            <column name="amount" value="251.52"/>
+            <column name="currency" value="EUR"/>
+            <column name="type" value="SETTLEMENT"/>
+            <column name="created_at" value="2021-07-29 06:05:16"/>
+            <column name="updated_at" value="2021-07-29 06:05:16"/>
+        </insert>
+        <rollback>
+            <delete tableName="transaction">
+                <where>
+                    id in (-1)
+                </where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

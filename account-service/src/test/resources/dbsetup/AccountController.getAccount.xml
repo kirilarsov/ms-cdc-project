@@ -1,0 +1,11 @@
+<dataset>
+
+    <account
+            id="-1"
+            name="Wayne Corp. Ltd"
+            balance="750.25"
+            currency="EUR"
+            user_uuid="f7b38fd1-025a-46a5-8f6e-371a2343f557"
+    />
+
+</dataset>
